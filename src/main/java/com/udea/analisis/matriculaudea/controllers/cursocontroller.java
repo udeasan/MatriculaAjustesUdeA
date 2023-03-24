@@ -19,6 +19,7 @@ public class cursocontroller {
 
     @GetMapping(value = "/cursos")
     public ArrayList<Curso> getAllstudents() {
+        
         ArrayList<Curso> courses = cursoService.findAllCourses();
         return courses;
     }
