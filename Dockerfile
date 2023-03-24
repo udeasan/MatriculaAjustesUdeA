@@ -1,4 +1,4 @@
-FROM maven:3.8.3-openjdk-17 AS build
+FROM maven:3.8.3-openjdk-17
 
 COPY . .
 
@@ -8,7 +8,7 @@ FROM openjdk:17-oracle
 
 WORKDIR /app
 
-COPY --from=build /target/matriculaudea-0.0.1-SNAPSHOT.jar demo.jar
+COPY ./target/matriculaudea-0.0.1-SNAPSHOT.jar /app
 
 EXPOSE 8080
 
