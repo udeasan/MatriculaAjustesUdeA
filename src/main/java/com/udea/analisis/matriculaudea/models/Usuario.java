@@ -14,40 +14,40 @@ public abstract class Usuario {
         return NumeroIdentificacion;
     }
 
-    public void setNumeroIdentificacion(String numeroIdentificacion) {
-        NumeroIdentificacion = numeroIdentificacion;
+    public void setNumeroIdentificacion(String NumeroIdentificacion) {
+        this.NumeroIdentificacion = NumeroIdentificacion;
     }
 
     public String getTipoIdentificacion() {
         return TipoIdentificacion;
     }
 
-    public void setTipoIdentificacion(String tipoIdentificacion) {
-        TipoIdentificacion = tipoIdentificacion;
+    public void setTipoIdentificacion(String TipoIdentificacion) {
+        this.TipoIdentificacion = TipoIdentificacion;
     }
 
     public String getNombre() {
         return Nombre;
     }
 
-    public void setNombre(String nombre) {
-        Nombre = nombre;
+    public void setNombre(String Nombre) {
+        this.Nombre = Nombre;
     }
 
     public String getApellidos() {
         return Apellidos;
     }
 
-    public void setApellidos(String apellidos) {
-        Apellidos = apellidos;
+    public void setApellidos(String Apellidos) {
+        this.Apellidos = Apellidos;
     }
 
     public String getCorreoElectronico() {
         return CorreoElectronico;
     }
 
-    public void setCorreoElectronico(String correoElectronico) {
-        CorreoElectronico = correoElectronico;
+    public void setCorreoElectronico(String CorreoElectronico) {
+        this.CorreoElectronico = CorreoElectronico;
     }
 
     public String CorreoElectronico;

@@ -5,11 +5,11 @@ import java.util.ArrayList;
 import org.springframework.stereotype.Service;
 
 import com.udea.analisis.matriculaudea.models.Estudiante;
-import com.udea.analisis.matriculaudea.models.IEstudianteService;
+import com.udea.analisis.matriculaudea.models.InterfacesServicios.IEstudianteService;
 
 @Service
 public class estudianteservice implements IEstudianteService {
-    ArrayList<Estudiante> students = new ArrayList<Estudiante>();
+    ArrayList<Estudiante> students;
 
     Estudiante pedro = new Estudiante("123", "CC", "Pedro", "Lopez", "pedro@gmail.com", "NORMAL");
     Estudiante camilo = new Estudiante("1434", "CC", "Camilo", "Lopez", "pedro@gmail.com", "NORMAL");
@@ -17,6 +17,7 @@ public class estudianteservice implements IEstudianteService {
 
     @Override
     public ArrayList<Estudiante> findAllStudents() {
+        students = new ArrayList<Estudiante>();
         students.add(pedro);
         students.add(sandra);
         students.add(camilo);
@@ -33,5 +34,10 @@ public class estudianteservice implements IEstudianteService {
             }
         }
         return myStudent;
+    }
+
+    @Override
+    public void insertStudent(Estudiante student) {
+        students.add(student);
     }
 }

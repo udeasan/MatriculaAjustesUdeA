@@ -1,15 +1,23 @@
 package com.udea.analisis.matriculaudea.models;
 
+import java.util.ArrayList;
+
 public class Matricula implements IMatricula {
 
 	public Semestre Semestre;
 
-	public Curso Materias;
+	public ArrayList<String> Materias;
 
 	public Estudiante Estudiante;
 
 	public Matricula() {
-		super();
+	}
+
+	public Matricula(com.udea.analisis.matriculaudea.models.Semestre semestre, ArrayList<String> materias,
+			com.udea.analisis.matriculaudea.models.Estudiante estudiante) {
+		Semestre = semestre;
+		Materias = materias;
+		Estudiante = estudiante;
 	}
 
 	@Override

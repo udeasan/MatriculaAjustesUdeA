@@ -5,7 +5,6 @@ public class Estudiante extends Usuario {
 	public String Estado;
 
 	public Estudiante() {
-		super();
 	}
 
 	public Estudiante(String NumeroIdentificacion, String TipoIdentificacion, String Nombre, String Apellidos,
@@ -16,7 +15,6 @@ public class Estudiante extends Usuario {
 		this.Apellidos = Apellidos;
 		this.CorreoElectronico = CorreoElectronico;
 		this.Estado = Estado;
-
 	}
 
 	public void IniciarSesion() {

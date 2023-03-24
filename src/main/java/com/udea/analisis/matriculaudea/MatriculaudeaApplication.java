@@ -7,7 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class MatriculaudeaApplication {
 
 	public static void main(String[] args) {
-		System.out.println("Hola");
 		SpringApplication.run(MatriculaudeaApplication.class, args);
 	}
 
