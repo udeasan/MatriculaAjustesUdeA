@@ -1,55 +1,62 @@
 package com.udea.analisis.matriculaudea.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public abstract class Usuario {
 
-    public String NumeroIdentificacion;
+    @JsonProperty("NumeroIdentificacion")
+    public String numeroIdentificacion;
 
-    public String TipoIdentificacion;
+    @JsonProperty("TipoIdentificacion")
+    public String tipoIdentificacion;
 
-    public String Nombre;
+    @JsonProperty("Nombre")
+    public String nombre;
 
-    public String Apellidos;
+    @JsonProperty("Apellidos")
+    public String apellidos;
+
+    @JsonProperty("CorreoElectronico")
+    public String correoElectronico;
 
     public String getNumeroIdentificacion() {
-        return NumeroIdentificacion;
+        return numeroIdentificacion;
     }
 
     public void setNumeroIdentificacion(String NumeroIdentificacion) {
-        this.NumeroIdentificacion = NumeroIdentificacion;
+        this.numeroIdentificacion = NumeroIdentificacion;
     }
 
     public String getTipoIdentificacion() {
-        return TipoIdentificacion;
+        return tipoIdentificacion;
     }
 
     public void setTipoIdentificacion(String TipoIdentificacion) {
-        this.TipoIdentificacion = TipoIdentificacion;
+        this.tipoIdentificacion = TipoIdentificacion;
     }
 
     public String getNombre() {
-        return Nombre;
+        return nombre;
     }
 
     public void setNombre(String Nombre) {
-        this.Nombre = Nombre;
+        this.nombre = Nombre;
     }
 
     public String getApellidos() {
-        return Apellidos;
+        return apellidos;
     }
 
     public void setApellidos(String Apellidos) {
-        this.Apellidos = Apellidos;
+        this.apellidos = Apellidos;
     }
 
     public String getCorreoElectronico() {
-        return CorreoElectronico;
+        return correoElectronico;
     }
 
     public void setCorreoElectronico(String CorreoElectronico) {
-        this.CorreoElectronico = CorreoElectronico;
+        this.correoElectronico = CorreoElectronico;
     }
-
-    public String CorreoElectronico;
 
 }

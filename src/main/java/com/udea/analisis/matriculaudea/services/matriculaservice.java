@@ -11,30 +11,35 @@ import com.udea.analisis.matriculaudea.models.Semestre;
 import com.udea.analisis.matriculaudea.models.InterfacesServicios.IMatriculaService;
 
 @Service
-public class matriculaservice implements IMatriculaService{
+public class matriculaservice implements IMatriculaService {
 
-    ArrayList<Matricula> matriculas = new ArrayList<Matricula>();
+    ArrayList<Matricula> matriculas;
 
-    Semestre semestreActual = new Semestre("2023", "01", null);
-    ArrayList<String> materias1 = new ArrayList<String>(Arrays.asList("123", "321", "222"));
-    Estudiante pedro = new Estudiante("123", "CC", "Pedro", "Lopez", "pedro@gmail.com", "NORMAL");
-    
-    Matricula matricula1 = new Matricula(semestreActual, materias1, pedro);
+    public matriculaservice() {
+        matriculas = new ArrayList<Matricula>();
+
+        Matricula matricula1 = new Matricula("000001", "123", "0124");
+        Matricula matricula2 = new Matricula("000002", "123132", "0124");
+        Matricula matricula3 = new Matricula("000003", "4324", "0124");
+
+        matriculas.add(matricula1);
+        matriculas.add(matricula2);
+        matriculas.add(matricula3);
+    }
 
     @Override
     public ArrayList<Matricula> findAllRegisters() {
-        matriculas.add(matricula1);
         return matriculas;
     }
 
     @Override
     public Matricula getRegisterByID(String id) {
-        return matricula1;
+        return matriculas.get(0);
     }
 
     @Override
     public void insertRegister(Matricula matricula) {
         matriculas.add(matricula);
     }
-    
+
 }

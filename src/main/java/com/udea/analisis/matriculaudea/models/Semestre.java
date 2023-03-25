@@ -1,42 +1,76 @@
 package com.udea.analisis.matriculaudea.models;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Semestre {
-	public String Anio;
 
-	public String SemestreAnio;
+	@JsonProperty("CodigoSemestre")
+	public String codigoSemestre;
 
-	public Matricula Matriculas;
+	@JsonProperty("InicioMatricula")
+	public String inicioMatricula;
+
+	@JsonProperty("FinMatricula")
+	public String finMatricula;
+
+	@JsonProperty("InicioClases")
+	public String inicioClases;
+
+	@JsonProperty("FinClases")
+	public String finClases;
 
 	public Semestre() {
 	}
 
-	public String getAnio() {
-		return Anio;
+	public Semestre(String codigoSemestre, String inicioMatricula, String finMatricula, String inicioClases,
+			String finClases) {
+		this.codigoSemestre = codigoSemestre;
+		this.inicioMatricula = inicioMatricula;
+		this.finMatricula = finMatricula;
+		this.inicioClases = inicioClases;
+		this.finClases = finClases;
 	}
 
-	public Semestre(String anio, String semestreAnio, Matricula matriculas) {
-		Anio = anio;
-		SemestreAnio = semestreAnio;
-		Matriculas = matriculas;
+	public String getCodigoSemestre() {
+		return codigoSemestre;
 	}
 
-	public void setAnio(String anio) {
-		Anio = anio;
+	public void setCodigoSemestre(String codigoSemestre) {
+		this.codigoSemestre = codigoSemestre;
 	}
 
-	public String getSemestreAnio() {
-		return SemestreAnio;
+	public String getInicioMatricula() {
+		return inicioMatricula;
 	}
 
-	public void setSemestreAnio(String semestreAnio) {
-		SemestreAnio = semestreAnio;
+	public void setInicioMatricula(String inicioMatricula) {
+		this.inicioMatricula = inicioMatricula;
 	}
 
-	public Matricula getMatriculas() {
-		return Matriculas;
+	public String getFinMatricula() {
+		return finMatricula;
 	}
 
-	public void setMatriculas(Matricula matriculas) {
-		Matriculas = matriculas;
+	public void setFinMatricula(String finMatricula) {
+		this.finMatricula = finMatricula;
 	}
+
+	public String getInicioClases() {
+		return inicioClases;
+	}
+
+	public void setInicioClases(String inicioClases) {
+		this.inicioClases = inicioClases;
+	}
+
+	public String getFinClases() {
+		return finClases;
+	}
+
+	public void setFinClases(String finClases) {
+		this.finClases = finClases;
+	}
+
+	
 
 }

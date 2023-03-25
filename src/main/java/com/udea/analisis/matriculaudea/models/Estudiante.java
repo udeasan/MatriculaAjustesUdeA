@@ -1,20 +1,23 @@
 package com.udea.analisis.matriculaudea.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Estudiante extends Usuario {
 
-	public String Estado;
+	@JsonProperty("Estado")
+	public String estado;
 
 	public Estudiante() {
 	}
 
 	public Estudiante(String NumeroIdentificacion, String TipoIdentificacion, String Nombre, String Apellidos,
 			String CorreoElectronico, String Estado) {
-		this.NumeroIdentificacion = NumeroIdentificacion;
-		this.TipoIdentificacion = TipoIdentificacion;
-		this.Nombre = Nombre;
-		this.Apellidos = Apellidos;
-		this.CorreoElectronico = CorreoElectronico;
-		this.Estado = Estado;
+		this.numeroIdentificacion = NumeroIdentificacion;
+		this.tipoIdentificacion = TipoIdentificacion;
+		this.nombre = Nombre;
+		this.apellidos = Apellidos;
+		this.correoElectronico = CorreoElectronico;
+		this.estado = Estado;
 	}
 
 	public void IniciarSesion() {
@@ -30,11 +33,11 @@ public class Estudiante extends Usuario {
 	}
 
 	public String getEstado() {
-		return Estado;
+		return estado;
 	}
 
 	public void setEstado(String estado) {
-		Estado = estado;
+		this.estado = estado;
 	}
 
 }

@@ -12,16 +12,18 @@ public class cursoservice implements ICursoService {
 
     ArrayList<Curso> courses = new ArrayList<Curso>();
 
-    Curso analisisI = new Curso("Análisis I", "MJ 20-22", "112233");
-    Curso analisisII = new Curso("Análisis II", "WV 20-22", "121256");
-    Curso basesDatos = new Curso("Bases de Datos", "MJ 20-22", "251425");
-
-
-    @Override
-    public ArrayList<Curso> findAllCourses() {
+    public cursoservice() {
+        Curso analisisI = new Curso("Análisis I", "MJ 20-22", "112233");
+        Curso analisisII = new Curso("Análisis II", "WV 20-22", "121256");
+        Curso basesDatos = new Curso("Bases de Datos", "MJ 20-22", "251425");
         courses.add(analisisI);
         courses.add(analisisII);
         courses.add(basesDatos);
+    }
+
+    @Override
+    public ArrayList<Curso> findAllCourses() {
+
         return courses;
     }
 
@@ -41,5 +43,5 @@ public class cursoservice implements ICursoService {
     public void insertCourse(Curso course) {
         courses.add(course);
     }
-    
+
 }

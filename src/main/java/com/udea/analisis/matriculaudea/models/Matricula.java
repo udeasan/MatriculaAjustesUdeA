@@ -1,63 +1,103 @@
 package com.udea.analisis.matriculaudea.models;
 
-import java.util.ArrayList;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Matricula implements IMatricula {
 
-	public Semestre Semestre;
+	@JsonProperty("CodigoMatricula")
+	public String codigoMatricula;
 
-	public ArrayList<String> Materias;
+	@JsonProperty("NumeroIdentificacionEstudiante")
+	public String numeroIdentificacionEstudiante;
 
-	public Estudiante Estudiante;
+	@JsonProperty("CodigoSemestre")
+	public String codigoSemestre;
 
 	public Matricula() {
 	}
 
-	public Matricula(com.udea.analisis.matriculaudea.models.Semestre semestre, ArrayList<String> materias,
-			com.udea.analisis.matriculaudea.models.Estudiante estudiante) {
-		Semestre = semestre;
-		Materias = materias;
-		Estudiante = estudiante;
+	public Matricula(String codigoMatricula, String numeroIdentificacionEstudiante, String codigoMateria) {
+		this.codigoMatricula = codigoMatricula;
+		this.numeroIdentificacionEstudiante = numeroIdentificacionEstudiante;
+		this.codigoSemestre = codigoMateria;
+	}
+
+	public String getCodigoMatricula() {
+		return codigoMatricula;
+	}
+
+	public void setCodigoMatricula(String codigoMatricula) {
+		this.codigoMatricula = codigoMatricula;
+	}
+
+	public String getNumeroIdentificacionEstudiante() {
+		return numeroIdentificacionEstudiante;
+	}
+
+	public void setNumeroIdentificacionEstudiante(String numeroIdentificacionEstudiante) {
+		this.numeroIdentificacionEstudiante = numeroIdentificacionEstudiante;
+	}
+
+	public String getCodigoSemestre() {
+		return codigoSemestre;
+	}
+
+	public void setCodigoSemestre(String codigoMateria) {
+		this.codigoSemestre = codigoMateria;
 	}
 
 	@Override
 	public void AnadirCurso() {
-
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'AnadirCurso'");
 	}
 
 	@Override
 	public void CargarDesdePreMatricula() {
-
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'CargarDesdePreMatricula'");
 	}
 
 	@Override
 	public void EliminarCurso() {
-
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'EliminarCurso'");
 	}
 
 	@Override
 	public void EliminarGrupo() {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'EliminarGrupo'");
 	}
 
 	@Override
 	public void ModificarGrupo() {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'ModificarGrupo'");
 	}
 
 	@Override
 	public void ModificarPreMatricula() {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'ModificarPreMatricula'");
 	}
 
 	@Override
 	public void SeleccionarGrupo() {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'SeleccionarGrupo'");
 	}
 
 	@Override
 	public Curso VisualizarListado() {
-		return null;
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'VisualizarListado'");
 	}
 
 	@Override
 	public void VisualizarIntentoDeMatricula() {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'VisualizarIntentoDeMatricula'");
 	}
 
 }
