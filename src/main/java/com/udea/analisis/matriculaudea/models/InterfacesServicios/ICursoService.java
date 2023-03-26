@@ -8,7 +8,7 @@ public interface ICursoService {
 
     ArrayList<Curso> findAllCourses();
 
-    Curso getCourseByID(String id);
+    ArrayList<Curso> getCoursesForStudent(String id);
 
     void insertCourse(Curso student);
 }

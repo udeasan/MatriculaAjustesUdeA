@@ -10,7 +10,7 @@ public abstract class Usuario {
     @JsonProperty("TipoIdentificacion")
     public String tipoIdentificacion;
 
-    @JsonProperty("Nombre")
+    @JsonProperty("Nombres")
     public String nombre;
 
     @JsonProperty("Apellidos")

@@ -1,13 +1,10 @@
 package com.udea.analisis.matriculaudea.services;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import org.springframework.stereotype.Service;
 
-import com.udea.analisis.matriculaudea.models.Estudiante;
 import com.udea.analisis.matriculaudea.models.Matricula;
-import com.udea.analisis.matriculaudea.models.Semestre;
 import com.udea.analisis.matriculaudea.models.InterfacesServicios.IMatriculaService;
 
 @Service
@@ -40,6 +37,11 @@ public class matriculaservice implements IMatriculaService {
     @Override
     public void insertRegister(Matricula matricula) {
         matriculas.add(matricula);
+    }
+
+    @Override
+    public void finishRegister(String id) {
+        //Reemplazar matriculas con el estado "Registrado", por Finalizado
     }
 
 }

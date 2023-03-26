@@ -10,4 +10,6 @@ public interface IMatriculaService {
     Matricula getRegisterByID(String id);
 
     void insertRegister(Matricula matricula);
+
+    void finishRegister(String id);
 }

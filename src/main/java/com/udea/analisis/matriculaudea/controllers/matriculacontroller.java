@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.udea.analisis.matriculaudea.models.Matricula;
-import com.udea.analisis.matriculaudea.models.InterfacesServicios.IMatriculaService;
+import com.udea.analisis.matriculaudea.services.matriculaservice;
 
 @RestController
 public class matriculacontroller {
     @Autowired
-    private IMatriculaService servicioMatricula;
+    private matriculaservice servicioMatricula;
 
     @GetMapping(value = "/matriculas")
     public ArrayList<Matricula> getAllRegisters() {
@@ -24,15 +24,19 @@ public class matriculacontroller {
     }
 
     @GetMapping("/matriculas/{id}")
-    public Matricula getStudentByID(@PathVariable String id){
+    public Matricula getStudentByID(@PathVariable String id) {
         Matricula myRegister = servicioMatricula.getRegisterByID(id);
         return myRegister;
     }
 
     @PostMapping("/matriculas")
-    public void postStudent(@RequestBody Matricula register)
-    {
+    public void postStudent(@RequestBody Matricula register) {
         servicioMatricula.insertRegister(register);
+    }
+
+    @GetMapping("/finalizarmatricula/{id}")
+    public void finalizarMatricula(@PathVariable String id) {
+        servicioMatricula.finishRegister(id);
     }
 
 }

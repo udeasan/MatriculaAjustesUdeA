@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.udea.analisis.matriculaudea.models.Estudiante;
-import com.udea.analisis.matriculaudea.models.InterfacesServicios.IEstudianteService;
+import com.udea.analisis.matriculaudea.services.estudianteservice;
 
 @RestController
 public class estudiantecontroller {
     @Autowired
-    private IEstudianteService servicioEstudiante;
+    private estudianteservice servicioEstudiante;
 
     @GetMapping(value = "/estudiantes")
     public ArrayList<Estudiante> getAllstudents() {
