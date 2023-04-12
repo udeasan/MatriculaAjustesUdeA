@@ -13,12 +13,6 @@ public class estudianteservice implements IEstudianteService {
 
     public estudianteservice() {
         students = new ArrayList<Estudiante>();
-        Estudiante pedro = new Estudiante("123", "CC", "Pedro", "Lopez", "pedro@gmail.com", "NORMAL");
-        Estudiante camilo = new Estudiante("1434", "CC", "Camilo", "Lopez", "pedro@gmail.com", "NORMAL");
-        Estudiante sandra = new Estudiante("13443", "CC", "Sandra", "Lopez", "pedro@gmail.com", "NORMAL");
-        students.add(pedro);
-        students.add(sandra);
-        students.add(camilo);
     }
 
     @Override

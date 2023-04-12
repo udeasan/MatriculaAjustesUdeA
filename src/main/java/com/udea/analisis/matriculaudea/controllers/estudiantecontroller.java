@@ -1,6 +1,6 @@
 package com.udea.analisis.matriculaudea.controllers;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.udea.analisis.matriculaudea.models.Estudiante;
+import com.udea.analisis.matriculaudea.repositories.EstudianteRepository;
 import com.udea.analisis.matriculaudea.services.estudianteservice;
 
 @RestController
@@ -17,10 +18,13 @@ public class estudiantecontroller {
     @Autowired
     private estudianteservice servicioEstudiante;
 
+    @Autowired
+    EstudianteRepository estudianteRepository;
+
     @GetMapping(value = "/estudiantes")
-    public ArrayList<Estudiante> getAllstudents() {
-        ArrayList<Estudiante> students = servicioEstudiante.findAllStudents();
-        return students;
+    public List<Estudiante> getAllstudents() {
+        long estudiantess = estudianteRepository.count();
+        return null;
     }
 
     @GetMapping("/estudiantes/{id}")

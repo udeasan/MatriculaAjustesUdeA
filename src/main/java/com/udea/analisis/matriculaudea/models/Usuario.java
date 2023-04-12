@@ -2,21 +2,34 @@ package com.udea.analisis.matriculaudea.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "estudiantes")
 public abstract class Usuario {
 
+    @Id
     @JsonProperty("NumeroIdentificacion")
+    @Column(name = "NumeroIdentificacion")
     public String numeroIdentificacion;
 
     @JsonProperty("TipoIdentificacion")
+    @Column(name = "TipoIdentificacion")
     public String tipoIdentificacion;
 
     @JsonProperty("Nombres")
+    @Column(name = "Nombres")
     public String nombre;
 
     @JsonProperty("Apellidos")
+    @Column(name = "Apellidos")
     public String apellidos;
 
     @JsonProperty("CorreoElectronico")
+    @Column(name = "CorreoElectronico")
     public String correoElectronico;
 
     public String getNumeroIdentificacion() {
