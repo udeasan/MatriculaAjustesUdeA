@@ -23,8 +23,7 @@ public class estudiantecontroller {
 
     @GetMapping(value = "/estudiantes")
     public List<Estudiante> getAllstudents() {
-        long estudiantess = estudianteRepository.count();
-        return null;
+        return estudianteRepository.findAll();
     }
 
     @GetMapping("/estudiantes/{id}")

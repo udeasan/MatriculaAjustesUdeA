@@ -24,21 +24,21 @@ public class Estudiante extends Usuario {
 
 	@Column(name = "PensumVersion")
 	@JsonProperty("PensumVersion")
-	public int pensumVersion;
+	public Integer pensumVersion;
 
 	@Column(name = "CreditosCursados")
 	@JsonProperty("CreditosCursados")
-	public int creditosCursados;
+	public Integer creditosCursados;
 
 	@Column(name = "SemestreAcademico")
 	@JsonProperty("SemestreAcademico")
-	public int semestreAcademico;
+	public Integer semestreAcademico;
 
 	public Estudiante() {
 	}
 
 	public Estudiante(String NumeroIdentificacion, String TipoIdentificacion, String Nombre, String Apellidos, String CarreraAcademica,
-			String CorreoElectronico, String EstadoMatricula, String EstadoEstudiante, int PensumVersion, int CreditosCursados, int SemestreAcademico) {
+			String CorreoElectronico, String EstadoMatricula, String EstadoEstudiante, Integer PensumVersion, Integer CreditosCursados, Integer SemestreAcademico) {
 		this.numeroIdentificacion = NumeroIdentificacion;
 		this.tipoIdentificacion = TipoIdentificacion;
 		this.nombre = Nombre;
@@ -88,23 +88,23 @@ public class Estudiante extends Usuario {
 		this.carreraAcademica = carreraAcademica;
 	}
 
-	public int getPensumVersion() {
+	public Integer getPensumVersion() {
 		return pensumVersion;
 	}
 
-	public void setPensumVersion(int pensumVersion) {
+	public void setPensumVersion(Integer pensumVersion) {
 		this.pensumVersion = pensumVersion;
 	}
 
-	public int getCreditosCursados() {
+	public Integer getCreditosCursados() {
 		return creditosCursados;
 	}
 
-	public void setCreditosCursados(int creditosCursados) {
+	public void setCreditosCursados(Integer creditosCursados) {
 		this.creditosCursados = creditosCursados;
 	}
 
-	public int getSemestreAcademico() {
+	public Integer getSemestreAcademico() {
 		return semestreAcademico;
 	}
 

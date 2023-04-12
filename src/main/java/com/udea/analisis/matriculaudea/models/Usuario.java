@@ -3,12 +3,10 @@ package com.udea.analisis.matriculaudea.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.MappedSuperclass;
 
-@Entity
-@Table(name = "estudiantes")
+@MappedSuperclass
 public abstract class Usuario {
 
     @Id
