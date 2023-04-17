@@ -13,9 +13,9 @@ public class cursoservice implements ICursoService {
     ArrayList<Curso> courses = new ArrayList<Curso>();
 
     public cursoservice() {
-        Curso analisisI = new Curso("1020001", "Análisis II", "MJ 20-22", "4", "20", "", "");
-        Curso analisisII = new Curso("1020002", "Análisis II", "WV 20-22", "4", "20", "1020001", "");
-        Curso basesDeDatos = new Curso("10200003", "Bases de Datos", "LWV 12-14", "4", "20", "", "");
+        Curso analisisI = new Curso("1020001", "Análisis II", "MJ 20-22", "4", "20", "", "", 1);
+        Curso analisisII = new Curso("1020002", "Análisis II", "WV 20-22", "4", "20", "1020001", "", 1);
+        Curso basesDeDatos = new Curso("10200003", "Bases de Datos", "LWV 12-14", "4", "20", "", "", 1);
         courses.add(analisisI);
         courses.add(analisisII);
         courses.add(basesDeDatos);
@@ -30,8 +30,8 @@ public class cursoservice implements ICursoService {
     public ArrayList<Curso> getCoursesForStudent(String id) {
         //Filter courses for student
         ArrayList<Curso> listaTemporal = new ArrayList<Curso>();
-        Curso analisisI = new Curso("1020001", "Análisis II", "MJ 20-22", "4", "20", "", "");
-        Curso basesDeDatos = new Curso("10200003", "Bases de Datos", "LWV 12-14", "4", "20", "", "");
+        Curso analisisI = new Curso("1020001", "Análisis II", "MJ 20-22", "4", "20", "", "", 1);
+        Curso basesDeDatos = new Curso("10200003", "Bases de Datos", "LWV 12-14", "4", "20", "", "", 1);
         listaTemporal.add(analisisI);
         listaTemporal.add(basesDeDatos);
         return listaTemporal;

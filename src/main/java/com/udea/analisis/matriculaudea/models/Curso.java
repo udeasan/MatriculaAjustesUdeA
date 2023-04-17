@@ -2,26 +2,45 @@ package com.udea.analisis.matriculaudea.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "cursos")
 public class Curso {
 
+	@Id
+	@Column(name = "codigo")
 	@JsonProperty("Codigo")
 	public String codigo;
 
+	@Column(name = "nombre")
 	@JsonProperty("Nombre")
 	public String nombre;
 
+	@Column(name = "horario")
 	@JsonProperty("Horario")
 	public String horario;
 
+	@Column(name = "nivel")
+	@JsonProperty("Nivel")
+	public Integer nivel;
+
+	@Column(name = "creditos")
 	@JsonProperty("Creditos")
 	public String creditos;
 
+	@Column(name = "cupos")
 	@JsonProperty("Cupos")
 	public String cupos;
 
+	@Column(name = "prerrequisitos")
 	@JsonProperty("Prerrequisitos")
 	public String prerrequisitos;
 
+	@Column(name = "correquisitos")
 	@JsonProperty("Correquisitos")
 	public String correquisitos;
 
@@ -29,7 +48,7 @@ public class Curso {
 	}
 
 	public Curso(String codigo, String nombre, String horario, String creditos, String cupos, String prerrequisitos,
-			String correquisitos) {
+			String correquisitos, Integer nivel) {
 		this.codigo = codigo;
 		this.nombre = nombre;
 		this.horario = horario;
@@ -37,6 +56,15 @@ public class Curso {
 		this.cupos = cupos;
 		this.prerrequisitos = prerrequisitos;
 		this.correquisitos = correquisitos;
+		this.nivel = nivel;
+	}
+
+	public Integer getNivel() {
+		return nivel;
+	}
+
+	public void setNivel(Integer nivel) {
+		this.nivel = nivel;
 	}
 
 	public String getCodigo() {

@@ -10,27 +10,27 @@ import jakarta.persistence.Table;
 @Table(name = "estudiantes")
 public class Estudiante extends Usuario {
 
-	@Column(name = "EstadoMatricula")
+	@Column(name = "estado_matricula")
 	@JsonProperty("EstadoMatricula")
 	public String estadoMatricula;
 
-	@Column(name = "EstadoEstudiante")
+	@Column(name = "estado_estudiante")
 	@JsonProperty("EstadoEstudiante")
 	public String estadoEstudiante;
 
-	@Column(name = "CarreraAcademica")
+	@Column(name = "carrera_academica")
 	@JsonProperty("CarreraAcademica")
 	public String carreraAcademica;
 
-	@Column(name = "PensumVersion")
+	@Column(name = "pensum_version")
 	@JsonProperty("PensumVersion")
 	public Integer pensumVersion;
 
-	@Column(name = "CreditosCursados")
+	@Column(name = "creditos_cursados")
 	@JsonProperty("CreditosCursados")
 	public Integer creditosCursados;
 
-	@Column(name = "SemestreAcademico")
+	@Column(name = "semestre_academico")
 	@JsonProperty("SemestreAcademico")
 	public Integer semestreAcademico;
 

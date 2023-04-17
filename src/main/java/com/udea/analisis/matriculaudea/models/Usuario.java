@@ -11,23 +11,23 @@ public abstract class Usuario {
 
     @Id
     @JsonProperty("NumeroIdentificacion")
-    @Column(name = "NumeroIdentificacion")
+    @Column(name = "numero_identificacion")
     public String numeroIdentificacion;
 
     @JsonProperty("TipoIdentificacion")
-    @Column(name = "TipoIdentificacion")
+    @Column(name = "tipo_identificacion")
     public String tipoIdentificacion;
 
     @JsonProperty("Nombres")
-    @Column(name = "Nombres")
+    @Column(name = "nombres")
     public String nombre;
 
     @JsonProperty("Apellidos")
-    @Column(name = "Apellidos")
+    @Column(name = "apellidos")
     public String apellidos;
 
     @JsonProperty("CorreoElectronico")
-    @Column(name = "CorreoElectronico")
+    @Column(name = "correo_electronico")
     public String correoElectronico;
 
     public String getNumeroIdentificacion() {
