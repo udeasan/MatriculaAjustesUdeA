@@ -3,6 +3,7 @@ package com.udea.analisis.matriculaudea.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,11 +27,13 @@ public class cursocontroller {
     @Autowired
     EstudianteRepository estudiantesRepository;
 
+    @CrossOrigin
     @GetMapping(value = "/cursos/{idCarrera}")
     public List<Curso> getAllcourses(@PathVariable String idCarrera) {
         return cursosRepository.findAll();
     }
 
+    @CrossOrigin
     @GetMapping("/cursos/estudiante/{idStudent}")
     public List<Curso> getCourseByID(@PathVariable String idStudent){
         Estudiante estudiante = estudiantesRepository.findByNumeroIdentificacion(idStudent);
@@ -43,6 +46,7 @@ public class cursocontroller {
         
     }
 
+    @CrossOrigin
     @PostMapping("/cursos")
     public void postStudent(@RequestBody Curso student)
     {
