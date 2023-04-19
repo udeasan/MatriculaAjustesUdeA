@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.udea.analisis.matriculaudea.models.Curso;
+import com.udea.analisis.matriculaudea.models.Estudiante;
 import com.udea.analisis.matriculaudea.repositories.CursosRepository;
+import com.udea.analisis.matriculaudea.repositories.EstudianteRepository;
 import com.udea.analisis.matriculaudea.services.cursoservice;
 
 @RestController
@@ -21,6 +23,9 @@ public class cursocontroller {
     @Autowired
     CursosRepository cursosRepository;
 
+    @Autowired
+    EstudianteRepository estudiantesRepository;
+
     @GetMapping(value = "/cursos/{idCarrera}")
     public List<Curso> getAllcourses(@PathVariable String idCarrera) {
         return cursosRepository.findAll();
@@ -28,7 +33,14 @@ public class cursocontroller {
 
     @GetMapping("/cursos/estudiante/{idStudent}")
     public List<Curso> getCourseByID(@PathVariable String idStudent){
-        return cursosRepository.findByNivel(1);
+        Estudiante estudiante = estudiantesRepository.findByNumeroIdentificacion(idStudent);
+        if(estudiante != null && estudiante.semestreAcademico != null){
+            return cursosRepository.findByNivel(estudiante.semestreAcademico);
+        }
+        else {
+            return null;
+        }
+        
     }
 
     @PostMapping("/cursos")

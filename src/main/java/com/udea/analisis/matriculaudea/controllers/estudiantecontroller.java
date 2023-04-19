@@ -28,8 +28,7 @@ public class estudiantecontroller {
 
     @GetMapping("/estudiantes/{id}")
     public Estudiante getStudentByID(@PathVariable String id){
-        Estudiante myStudent = servicioEstudiante.getStudentByID(id);
-        return myStudent;
+        return estudianteRepository.findByNumeroIdentificacion(id);
     }
 
     @PostMapping("/estudiantes")
