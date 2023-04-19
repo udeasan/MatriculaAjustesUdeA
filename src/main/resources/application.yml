@@ -1,14 +1,5 @@
-@Value("#{environment.URL_DATABASE}")
-private String urlDatabase;
-
-@Value("#{environment.USERNAME}")
-private String username;
-
-@Value("#{environment.PASSWORD}")
-private String password;
-
 spring:
     datasource:
-        password: urlDatabase
-        url: username
-        username: password
+        password: "${URL_DATABASE}"
+        url: "${USERNAME}"
+        username: "${PASSWORD}"
