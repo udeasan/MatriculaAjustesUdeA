@@ -1,17 +1,15 @@
+FROM maven:3.8.3-openjdk-17 AS maven
+
+COPY . .
+
+RUN mvn clean package 
+
 FROM openjdk:17-oracle
 
 WORKDIR /app
 
-ADD "./target/matriculaudea-0.0.1-SNAPSHOT.jar" "app.jar"
-
-ARG URL_DATABASE
-ARG USERNAME_DB
-ARG PASSWORD
-
-ENV URL_DATABASE=${URL_DATABASE}
-ENV USERNAME_DB=${USERNAME_DB}
-ENV PASSWORD=${PASSWORD}
+COPY --from=maven /target/matriculaudea-0.0.1-SNAPSHOT.jar /app
 
 EXPOSE 8080
 
-ENTRYPOINT ["java","-jar","app.jar"]
+ENTRYPOINT ["java","-jar","matriculaudea-0.0.1-SNAPSHOT.jar"]
