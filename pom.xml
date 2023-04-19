@@ -15,6 +15,8 @@
 	<description>Proyecto de Matricula y Ajustes</description>
 	<properties>
 		<java.version>17</java.version>
+		<sonar.organization>sandy660</sonar.organization>
+  		<sonar.host.url>https://sonarcloud.io</sonar.host.url>		
 	</properties>
 	<dependencies>
 		<dependency>
@@ -43,6 +45,9 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<groupId>org.sonarsource.scanner.maven</groupId>
+				<artifactId>sonar-maven-plugin</artifactId>
+				<version>3.7.0.1746</version>
 			</plugin>
 		</plugins>
 	</build>
