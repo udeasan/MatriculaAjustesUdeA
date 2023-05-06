@@ -22,7 +22,7 @@ public class matriculacontroller {
 
     @CrossOrigin
     @PostMapping(value = "/iniciarMatricula/{idEstudiante}")
-    public Object iniciarMatricula(@PathVariable String idEstudiante) {
+    public HashMap<String, String> iniciarMatricula(@PathVariable String idEstudiante) {
         Estudiante findStudent = estudianteRepository.findByNumeroIdentificacion(idEstudiante);
 
         if (findStudent != null) {

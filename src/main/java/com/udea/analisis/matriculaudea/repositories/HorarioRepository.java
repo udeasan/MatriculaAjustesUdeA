@@ -10,4 +10,5 @@ import com.udea.analisis.matriculaudea.models.Horario;
 @Repository
 public interface HorarioRepository extends JpaRepository<Horario, String> {
     List<Horario> findByIdCurso(String IdCurso);
+    Horario findByCodigo(String codigo);
 }
