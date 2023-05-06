@@ -8,4 +8,5 @@ import com.udea.analisis.matriculaudea.models.Estudiante;
 @Repository
 public interface EstudianteRepository extends JpaRepository<Estudiante, String> {
     Estudiante findByNumeroIdentificacion(String numero_identificicacion);
+    Estudiante findByCorreoElectronico(String correo_electronico);
 }

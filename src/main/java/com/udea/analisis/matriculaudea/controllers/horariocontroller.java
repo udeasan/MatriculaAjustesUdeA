@@ -19,7 +19,6 @@ public class horariocontroller {
     @CrossOrigin
     @GetMapping(value = "/horarios/{IdCurso}")
     public List<Horario> getAllHorarios(@PathVariable String IdCurso){
-        System.out.println(IdCurso);
         return horarioRepository.findByIdCurso(IdCurso);
     }
 }

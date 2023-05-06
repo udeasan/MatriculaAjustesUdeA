@@ -2,24 +2,40 @@ package com.udea.analisis.matriculaudea.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "matriculas")
 public class Matricula implements IMatricula {
 
+	@Id
+	@Column(name = "codigo_matricula")
 	@JsonProperty("CodigoMatricula")
 	public String codigoMatricula;
 
+	@Column(name = "numero_identificacion")
 	@JsonProperty("NumeroIdentificacionEstudiante")
 	public String numeroIdentificacionEstudiante;
 
+	@Column(name = "codigo_semestre")
 	@JsonProperty("CodigoSemestre")
 	public String codigoSemestre;
+
+	@Column(name = "estado_matricula")
+	@JsonProperty("EstadoMatricula")
+	public String estadoMatricula;
 
 	public Matricula() {
 	}
 
-	public Matricula(String codigoMatricula, String numeroIdentificacionEstudiante, String codigoMateria) {
+	public Matricula(String codigoMatricula, String numeroIdentificacionEstudiante, String codigoSemestre, String estadoMatricula) {
 		this.codigoMatricula = codigoMatricula;
 		this.numeroIdentificacionEstudiante = numeroIdentificacionEstudiante;
-		this.codigoSemestre = codigoMateria;
+		this.codigoSemestre = codigoSemestre;
+		this.estadoMatricula = estadoMatricula;
 	}
 
 	public String getCodigoMatricula() {
@@ -44,6 +60,14 @@ public class Matricula implements IMatricula {
 
 	public void setCodigoSemestre(String codigoMateria) {
 		this.codigoSemestre = codigoMateria;
+	}
+
+	public String getEstadoMatricula() {
+		return estadoMatricula;
+	}
+
+	public void SetEstadoMatricula(String estadoMatricula) {
+		this.estadoMatricula = estadoMatricula;
 	}
 
 	@Override
