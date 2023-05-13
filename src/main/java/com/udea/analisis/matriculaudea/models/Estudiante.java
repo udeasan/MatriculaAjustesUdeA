@@ -34,11 +34,15 @@ public class Estudiante extends Usuario {
 	@JsonProperty("SemestreAcademico")
 	public Integer semestreAcademico;
 
+	@Column(name = "tanda_matricula")
+	@JsonProperty("TandaMatricula")
+	public String TandaMatricula;
+
 	public Estudiante() {
 	}
 
 	public Estudiante(String NumeroIdentificacion, String TipoIdentificacion, String Nombre, String Apellidos, String CarreraAcademica,
-			String CorreoElectronico, String EstadoMatricula, String EstadoEstudiante, Integer PensumVersion, Integer CreditosCursados, Integer SemestreAcademico) {
+			String CorreoElectronico, String EstadoMatricula, String EstadoEstudiante, Integer PensumVersion, Integer CreditosCursados, Integer SemestreAcademico, String TandaMatricula) {
 		this.numeroIdentificacion = NumeroIdentificacion;
 		this.tipoIdentificacion = TipoIdentificacion;
 		this.nombre = Nombre;
@@ -50,6 +54,7 @@ public class Estudiante extends Usuario {
 		this.pensumVersion = PensumVersion;
 		this.creditosCursados = CreditosCursados;
 		this.semestreAcademico = SemestreAcademico;
+		this.TandaMatricula = TandaMatricula;
 	}
 
 	public void IniciarSesion() {
@@ -108,7 +113,15 @@ public class Estudiante extends Usuario {
 		return semestreAcademico;
 	}
 
-	public void setSemestreAcademico(int semestreAcademico) {
+	public void setSemestreAcademico(Integer semestreAcademico) {
 		this.semestreAcademico = semestreAcademico;
+	}
+
+	public String getTandaMatricula() {
+		return TandaMatricula;
+	}
+
+	public void setTandaMatricula(String tandaMatricula) {
+		TandaMatricula = tandaMatricula;
 	}
 }

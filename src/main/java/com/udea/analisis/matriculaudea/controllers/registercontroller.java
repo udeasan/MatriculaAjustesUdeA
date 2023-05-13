@@ -1,6 +1,7 @@
 package com.udea.analisis.matriculaudea.controllers;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,6 +57,7 @@ public class registercontroller {
         } else {
             if (matriculaEstudiante.estadoMatricula.toUpperCase().equals("INICIADA")) {
                 Horario horarioCurso = horarioRepository.findByCodigo(registroData.codigoHorario);
+
                 if (horarioCurso == null) {
                     jsonError.put("status", "ERROR");
                     jsonError.put("message", "No se encontro el curso solicitado");
@@ -65,19 +67,33 @@ public class registercontroller {
                     jsonError.put("message", "No hay cupos disponibles para el curso");
                     return jsonError;
                 } else {
-                    int randomInt = (int) ((Math.random() * (1000 - 1)) + 1);
-                    Registro registroMatricula = new Registro();
-                    registroMatricula.codigoHorario = registroData.codigoHorario;
-                    registroMatricula.codigoMateria = horarioCurso.idCurso;
-                    registroMatricula.codigoMatricula = matriculaEstudiante.codigoMatricula;
-                    registroMatricula.numeroIdentificacionEstudiante = matriculaEstudiante.numeroIdentificacionEstudiante;
-                    registroMatricula.estadoRegistro = "Inicial";
-                    registroMatricula.idRegistro = String.valueOf(randomInt) + matriculaEstudiante.codigoMatricula;
-                    registroRepository.save(registroMatricula);
+                    List<Registro> registrosEstudiante = registroRepository.findRegistrosByCodigoMatricula(matriculaEstudiante.codigoMatricula);
 
-                    jsonOK.put("status", "OK");
-                    jsonOK.put("message", "Se ha creado el registro de horario correctamente");
-                    return jsonOK;
+                    Registro isRegistered = registrosEstudiante.stream().filter(item -> item.codigoMateria.equals(horarioCurso.idCurso)).findAny().orElse(null);
+                    if (isRegistered == null) {
+                        int randomInt = (int) ((Math.random() * (1000 - 1)) + 1);
+                        Registro registroMatricula = new Registro();
+                        registroMatricula.codigoHorario = registroData.codigoHorario;
+                        registroMatricula.codigoMateria = horarioCurso.idCurso;
+                        registroMatricula.codigoMatricula = matriculaEstudiante.codigoMatricula;
+                        registroMatricula.numeroIdentificacionEstudiante = matriculaEstudiante.numeroIdentificacionEstudiante;
+                        registroMatricula.estadoRegistro = "Inicial";
+                        registroMatricula.idRegistro = String.valueOf(randomInt) + matriculaEstudiante.codigoMatricula;
+                        registroRepository.save(registroMatricula);
+
+                        jsonOK.put("status", "OK");
+                        jsonOK.put("message", "Se ha creado el registro de horario correctamente");
+                        return jsonOK;
+                    } else {
+                        isRegistered.codigoHorario = registroData.codigoHorario;
+
+                        registroRepository.save(isRegistered);
+
+                        jsonOK.put("status", "OK");
+                        jsonOK.put("message", "Se ha actualizado el registro de horario correctamente");
+                        return jsonOK;
+                    }
+                    
                 }
 
             } else {
