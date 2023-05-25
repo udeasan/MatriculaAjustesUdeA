@@ -36,6 +36,18 @@ public class Registro {
     @JsonProperty("EstadoRegistro")
     public String estadoRegistro;
 
+    @Column(name = "nombre_curso")
+    @JsonProperty("NombreCurso")
+    public String nombreCurso;
+
+    @Column(name = "horario_curso")
+    @JsonProperty("HorarioCurso")
+    public String horarioCurso;
+
+    @Column(name = "creditos_curso")
+    @JsonProperty("CreditosCurso")
+    public String creditosCurso;
+
     public String getIdRegistro() {
         return idRegistro;
     }
@@ -97,4 +109,28 @@ public class Registro {
         this.estadoRegistro = estadoRegistro;
     }
 
+    
+    public String getNombreCurso() {
+        return nombreCurso;
+    }
+
+    public void setNombreCurso(String nombreCurso) {
+        this.nombreCurso = nombreCurso;
+    }
+
+    public String getHorarioCurso() {
+        return horarioCurso;
+    }
+
+    public void setHorarioCurso(String horarioCurso) {
+        this.horarioCurso = horarioCurso;
+    }
+
+    public String getCreditosCurso() {
+        return creditosCurso;
+    }
+
+    public void setCreditosCurso(String creditosCurso) {
+        this.creditosCurso = creditosCurso;
+    }
 }

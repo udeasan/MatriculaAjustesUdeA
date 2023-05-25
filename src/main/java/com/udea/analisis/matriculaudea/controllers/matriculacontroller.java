@@ -15,11 +15,15 @@ import java.util.List;
 import java.util.Optional;
 import java.util.TimeZone;
 
+import com.udea.analisis.matriculaudea.models.Curso;
 import com.udea.analisis.matriculaudea.models.Estudiante;
+import com.udea.analisis.matriculaudea.models.Horario;
 import com.udea.analisis.matriculaudea.models.Matricula;
 import com.udea.analisis.matriculaudea.models.Registro;
 import com.udea.analisis.matriculaudea.models.Tanda;
+import com.udea.analisis.matriculaudea.repositories.CursosRepository;
 import com.udea.analisis.matriculaudea.repositories.EstudianteRepository;
+import com.udea.analisis.matriculaudea.repositories.HorarioRepository;
 import com.udea.analisis.matriculaudea.repositories.MatriculasRepository;
 import com.udea.analisis.matriculaudea.repositories.RegistrosRepository;
 import com.udea.analisis.matriculaudea.repositories.TandaRepository;
@@ -34,6 +38,10 @@ public class matriculacontroller {
     RegistrosRepository registroRepository;
     @Autowired
     TandaRepository tandaRepository;
+    @Autowired
+    CursosRepository cursosRepository;
+    @Autowired
+    HorarioRepository horarioRepository;
 
     @CrossOrigin
     @PostMapping(value = "/iniciarMatricula/{idEstudiante}")
@@ -193,6 +201,16 @@ public class matriculacontroller {
         }else {
             List<Registro> registros = registroRepository
                     .findRegistrosByCodigoMatricula(matriculaEstudiante.codigoMatricula);
+            
+            registros.forEach((registro) -> {
+                Curso cursoR = cursosRepository.findById(registro.codigoMateria).get();
+                Horario horarioR = horarioRepository.findById(registro.codigoHorario).get();
+                if(cursoR != null && horarioR != null) {
+                    registro.horarioCurso = horarioR.horario;
+                    registro.nombreCurso = cursoR.nombre;
+                    registro.creditosCurso = cursoR.creditos;
+                }
+            });
             jsonOK.put("status", "OK");
             jsonOK.put("message", "Se han consultado los registros del estudiante");
             jsonOK.put("Registros", registros);
