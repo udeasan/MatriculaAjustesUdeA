@@ -36,7 +36,7 @@ public class cursocontroller {
             return cursosRepository.findByNivel(estudiante.semestreAcademico);
         }
         else {
-            return null;
+            return List.of();
         }
         
     }

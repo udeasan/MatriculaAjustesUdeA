@@ -17,8 +17,8 @@ public class horariocontroller {
     HorarioRepository horarioRepository;
 
     @CrossOrigin
-    @GetMapping(value = "/horarios/{IdCurso}")
-    public List<Horario> getAllHorarios(@PathVariable String IdCurso){
-        return horarioRepository.findByIdCurso(IdCurso);
+    @GetMapping(value = "/horarios/{idCurso}")
+    public List<Horario> getAllHorarios(@PathVariable String idCurso){
+        return horarioRepository.findByIdCurso(idCurso);
     }
 }

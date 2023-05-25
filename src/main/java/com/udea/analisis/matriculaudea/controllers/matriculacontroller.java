@@ -132,7 +132,7 @@ public class matriculacontroller {
                 matriculaEstudiante = matriculasRepository.findByNumeroIdentificacionEstudiante(identificadorPeticion);
                 if (matriculaEstudiante == null) {
                     jsonError.put("status", "ERROR");
-                    jsonError.put("message", "Error: No se ha encontrado la matricula, verificar el dato envíado.");
+                    jsonError.put("message", "No se ha encontrado la matricula, verificar el dato envíado.");
                     return jsonError;
                 }
             }
@@ -144,7 +144,7 @@ public class matriculacontroller {
 
         if (matriculaEstudiante == null || !matriculaEstudiante.estadoMatricula.toUpperCase().equals("INICIADA")) {
             jsonError.put("status", "ERROR");
-            jsonError.put("message", "Error: La matricula no se encuentra inicializada.");
+            jsonError.put("message", "La matricula no se encuentra inicializada.");
             return jsonError;
         } else {
             List<Registro> registros = registroRepository
@@ -158,6 +158,44 @@ public class matriculacontroller {
 
             jsonOK.put("status", "OK");
             jsonOK.put("message", "Se ha finalizado la matricula correctamente");
+            return jsonOK;
+        }
+    }
+
+    @CrossOrigin
+    @GetMapping(value = "/consultarMatricula/{identificadorPeticion}")
+    public HashMap<String, Object> consultarMatricula(@PathVariable String identificadorPeticion) {
+        HashMap<String, Object> jsonError = new HashMap<String, Object>();
+        HashMap<String, Object> jsonOK = new HashMap<String, Object>();
+        Matricula matriculaEstudiante = null;
+
+        if (identificadorPeticion != null && !identificadorPeticion.equals("")) {
+            Optional<Matricula> findById = matriculasRepository.findById(identificadorPeticion);
+            if (findById.isPresent()) {
+                matriculaEstudiante = findById.get();
+            } else {
+                matriculaEstudiante = matriculasRepository.findByNumeroIdentificacionEstudiante(identificadorPeticion);
+            }
+        } else {
+            jsonError.put("status", "ERROR");
+            jsonError.put("message", "No se han enviado la matricula o el id del estudiante");
+            return jsonError;
+        }
+
+        if(matriculaEstudiante == null) {
+            jsonError.put("status", "ERROR");
+            jsonError.put("message", "No se ha encontrado la matricula, verificar el dato envíado.");
+            return jsonError;
+        } else if (!matriculaEstudiante.estadoMatricula.equals("Matriculado")){
+            jsonError.put("status", "ERROR");
+            jsonError.put("message", "La matricula del estudiante aun no ha finalizado");
+            return jsonError;
+        }else {
+            List<Registro> registros = registroRepository
+                    .findRegistrosByCodigoMatricula(matriculaEstudiante.codigoMatricula);
+            jsonOK.put("status", "OK");
+            jsonOK.put("message", "Se han consultado los registros del estudiante");
+            jsonOK.put("Registros", registros);
             return jsonOK;
         }
     }
